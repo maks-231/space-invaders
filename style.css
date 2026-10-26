@@ -1,0 +1,43 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #05050f;
+  color: #7CFC00;
+  font-family: "Courier New", monospace;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+main { text-align: center; padding: 10px; width: 100%; max-width: 660px; }
+h1 { letter-spacing: 6px; margin: 8px 0; text-shadow: 0 0 10px #7CFC00; }
+#hud { display: flex; justify-content: space-between; padding: 0 6px 6px; font-size: 16px; }
+#hud b { color: #fff; }
+#wrap { position: relative; width: 100%; }
+canvas {
+  width: 100%;
+  height: auto;
+  background: #000;
+  border: 2px solid #7CFC00;
+  box-shadow: 0 0 20px #7CFC0066;
+  image-rendering: pixelated;
+  display: block;
+}
+#overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  background: rgba(0,0,0,.6);
+  cursor: pointer;
+}
+#overlay.hidden { display: none; }
+#overlay h2 { font-size: 36px; margin: 0 0 10px; text-shadow: 0 0 12px #7CFC00; }
+#overlay p { color: #fff; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: .3; } }
+.help { color: #888; font-size: 14px; }
+#touch { display: none; gap: 10px; justify-content: center; }
+#touch button {
+  flex: 1; padding: 16px; font: bold 18px monospace;
+  background: #112; color: #7CFC00; border: 2px solid #7CFC00; border-radius: 8px;
+  touch-action: none; user-select: none;
+}
+#touch button:active { background: #7CFC00; color: #000; }
+@media (pointer: coarse) { #touch { display: flex; } .help { display: none; } }
